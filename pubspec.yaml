@@ -23,5 +23,9 @@ flutter:
     - assets/icons/tooth.png
     - assets/icons/medicine.png
     - assets/icons/surgeon.jpg
+    - assets/image/doctor1.jpeg
+    - assets/image/doctor2.jpeg
+    - assets/image/doctor3.jpg
+    
 
 

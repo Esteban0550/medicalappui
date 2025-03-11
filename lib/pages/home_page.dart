@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-
                   // Ícono de perfil
                   Container(
                     padding: const EdgeInsets.all(12),
@@ -55,7 +54,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-
               SizedBox(height: 20), // Espaciado entre la barra superior y el card
 
               // Cómo te sientes (Tarjeta rosada)
@@ -78,7 +76,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(width: 20), // Espaciado entre imagen y texto
-
                     // Textos
                     Expanded(
                       child: Column(
@@ -114,6 +111,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
+                          SizedBox(height: 25), // Espaciado entre botones
                         ],
                       ),
                     ),
@@ -161,6 +159,58 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
+              // Doctor list (Texto debajo de la lista horizontal)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "Doctor list",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "See All",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 25), // Espaciado entre la lista horizontal y los doctores
+
+              Container(
+                child: Column(
+                  children: [
+                    // picture of doctor
+                    Image.asset(
+                     " assets/image/doctor1.jpeg",
+                      height: 40,
+                    ), // Image.asset
+
+                    // rating out of 5
+                    Row(
+                      children: [
+                        Icon(Icons.star),
+                        Text("4.9"),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              // doctor name
+              Text("Dr. Ian"),
+
+              // doctor title
+              Text("Therapist, 7 y.e"),
+
             ],
           ),
         ),
@@ -175,10 +225,10 @@ class CategoryCard extends StatelessWidget {
   final String categoryName;
 
   const CategoryCard({
-    Key? key,
+    super.key,
     required this.iconImagePath,
     required this.categoryName,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -195,10 +245,7 @@ class CategoryCard extends StatelessWidget {
             Image.asset(
               iconImagePath,
               height: 30,
-              errorBuilder: (context, error, stackTrace) {
-                return Icon(Icons.error, size: 30, color: Colors.red);
-              },
-            ),
+             ),
             SizedBox(width: 10), // Espaciado entre imagen y texto
             Text(categoryName),
           ],
@@ -207,5 +254,4 @@ class CategoryCard extends StatelessWidget {
     );
   }
 }
-
-//hoy to
+ 
