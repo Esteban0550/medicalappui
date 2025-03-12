@@ -742,7 +742,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                   onPressed: () {
                     setState(() {
                       // Simulación de selección de foto: se asigna una imagen de assets
-                      _profileImage = AssetImage("assets/image/doctor3.jpg");
+                      _profileImage = AssetImage("assets/image/est.jpg");
                     });
                   },
                   child: Text("Cambiar foto"),
