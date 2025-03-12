@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
+  
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -11,207 +11,245 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300], // Fondo gris claro
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // App Bar (Nombre + Ícono de perfil)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Nombre
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hello,',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.deepPurple[300]!, Colors.pink[200]!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // App Bar
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Hello, EPM',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.white,
                       ),
-                      SizedBox(height: 4),
-                      Text(
-                        'Mitch Koko',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 8,
+                            offset: Offset(2, 2),
+                          ),
+                        ],
+                      ),
+                      child: const Icon(Icons.person, size: 30, color: Colors.white),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+
+                // Tarjeta "How do you feel?"
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 12,
+                        offset: Offset(4, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      // Imagen del corazón
+                      Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.pink[100],
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 6,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: 
+                            Image.asset("assets/image/Corazon.png"),
+
+                           
+                          ),
+                        ),
+                      
+                      SizedBox(width: 20),
+
+                      // Texto y botón
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "How do you feel?",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              "Fill out your medical card right now",
+                              style: TextStyle(fontSize: 14, color: Colors.black54),
+                            ),
+                            SizedBox(height: 10),
+                            GestureDetector(
+                              onTap: () {
+                                // Acción cuando se presiona
+                              },
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 300),
+                                padding: EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.deepPurple,
+                                  borderRadius: BorderRadius.circular(12),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black26,
+                                      blurRadius: 6,
+                                      offset: Offset(2, 2),
+                                    ),
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Get Started',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                  // Ícono de perfil
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(Icons.person, size: 30),
+                ),
+                SizedBox(height: 25),
+
+                // Search bar mejorada
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 6,
+                        offset: Offset(2, 2),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              SizedBox(height: 20), // Espaciado entre la barra superior y el card
-
-              // Cómo te sientes (Tarjeta rosada)
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.pink[100], // Fondo rosa
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    // Animación (Cuadrado morado)
-                    Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurple, // Morado
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search, color: Colors.deepPurple),
+                      border: InputBorder.none,
+                      hintText: "How can we help you?",
                     ),
-                    SizedBox(width: 20), // Espaciado entre imagen y texto
-                    // Textos
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "How do you feel?",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 12),
-                          Text(
-                            "Fill out your medical card right now",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                          SizedBox(height: 4),
-                          Container(
-                            padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.deepPurple[300],
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Get Started',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 25), // Espaciado entre botones
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 25), // Espaciado entre las tarjetas
-
-              // Search bar
-              Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 223, 185, 252),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    border: InputBorder.none,
-                    hintText: "How can we help you?",
                   ),
                 ),
-              ),
-              SizedBox(height: 25), // Espaciado entre la barra inferior y el pie
+                SizedBox(height: 25),
 
-              // Horizontal list -> Categorías: Dentist, Surgeon, etc.
-              Container(
-                height: 80,
-                child: ListView(
-                  scrollDirection: Axis.horizontal, // Permite desplazamiento horizontal
-                  children: const [
-                    CategoryCard(
-                      categoryName: "Dentist",
-                      iconImagePath: 'assets/icons/tooth.png', // Icono de dentista
-                    ),
-                    CategoryCard(
-                      categoryName: "Surgeon",
-                      iconImagePath: 'assets/icons/surgeon.jpg', // Icono de cirujano
-                    ),
-                    CategoryCard(
-                      categoryName: "Pharmacist",
-                      iconImagePath: 'assets/icons/medicine.png', // Icono de farmacéutico
-                    ),
-                  ],
+                // Sección de Categorías con barra desplazable
+                Text(
+                  "Categories",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-
-              // Doctor list (Texto debajo de la lista horizontal)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      "Doctor list",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                SizedBox(height: 15),
+                Container(
+                  height: 100,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: const [
+                      CategoryCard(
+                        categoryName: "Dentist",
+                        iconImagePath: 'assets/icons/tooth.png',
                       ),
-                    ),
-                    Text(
-                      "See All",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                      CategoryCard(
+                        categoryName: "Surgeon",
+                        iconImagePath: 'assets/icons/surgeon.jpg',
                       ),
-                    ),
-                  ],
+                      CategoryCard(
+                        categoryName: "Pharmacist",
+                        iconImagePath: 'assets/icons/medicine.png',
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 25), // Espaciado entre la lista horizontal y los doctores
+                SizedBox(height: 25),
 
-              Container(
-                child: Column(
-                  children: [
-                    // picture of doctor
-                    Image.asset(
-                     " assets/image/doctor1.jpeg",
-                      height: 40,
-                    ), // Image.asset
-
-                    // rating out of 5
-                    Row(
-                      children: [
-                        Icon(Icons.star),
-                        Text("4.9"),
-                      ],
+                // Lista de doctores con efecto 3D
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Text(
+                    "Doctor list",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              // doctor name
-              Text("Dr. Ian"),
-
-              // doctor title
-              Text("Therapist, 7 y.e"),
-
-            ],
+                Expanded(
+                  child: ListView(
+                    children: [
+                      DoctorCard(
+                        imagePath: "assets/image/doctor1.jpeg",
+                        name: "Dr. Arlene McCoy",
+                        title: "Therapist, 7 y.e.",
+                        rating: 4.9,
+                      ),
+                      DoctorCard(
+                        imagePath: "assets/image/doctor2.jpeg",
+                        name: "Dr. Ian",
+                        title: "Cardiologist, 10 y.e.",
+                        rating: 4.7,
+                      ),
+                      DoctorCard(
+                        imagePath: "assets/image/doctor3.jpg",
+                        name: "Dr. Fernely",
+                        title: "Gynecologist, 9 y.e.",
+                        rating: 4.8,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -219,7 +257,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// Clase CategoryCard corregida para que funcione correctamente
+// Tarjeta de Categoría
 class CategoryCard extends StatelessWidget {
   final String iconImagePath;
   final String categoryName;
@@ -233,25 +271,99 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25.0), // Espaciado izquierdo
+      padding: const EdgeInsets.only(right: 15.0),
       child: Container(
-        padding: EdgeInsets.all(20),
+        width: 120,
+        padding: EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           color: Colors.deepPurple[100],
-          borderRadius: BorderRadius.circular(12), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 8,
+              offset: Offset(3, 3),
+            ),
+          ],
         ),
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              iconImagePath,
-              height: 30,
-             ),
-            SizedBox(width: 10), // Espaciado entre imagen y texto
-            Text(categoryName),
+            Image.asset(iconImagePath,
+                height: 40, width: 40, fit: BoxFit.contain),
+            SizedBox(height: 8),
+            Text(
+              categoryName,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
           ],
         ),
       ),
     );
   }
 }
- 
+
+// Tarjeta de Doctor con efecto 3D
+class DoctorCard extends StatelessWidget {
+  final String imagePath;
+  final String name;
+  final String title;
+  final double rating;
+
+  const DoctorCard({
+    super.key,
+    required this.imagePath,
+    required this.name,
+    required this.title,
+    required this.rating,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 15),
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 6,
+            offset: Offset(2, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 35,
+            backgroundImage: AssetImage(imagePath),
+          ),
+          SizedBox(height: 8),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.star, color: Colors.amber, size: 20),
+              SizedBox(width: 5),
+              Text(
+                rating.toString(),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ],
+          ),
+          SizedBox(height: 8),
+          Text(
+            name,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          Text(
+            title,
+            style: TextStyle(fontSize: 14, color: Colors.black54),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  lottie: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +27,7 @@ flutter:
     - assets/image/doctor1.jpeg
     - assets/image/doctor2.jpeg
     - assets/image/doctor3.jpg
-    
+    - assets/image/DPDWzaUxBu.gif
+    - assets/image/Corazon.png
 
 
