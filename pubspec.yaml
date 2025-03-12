@@ -29,5 +29,12 @@ flutter:
     - assets/image/doctor3.jpg
     - assets/image/DPDWzaUxBu.gif
     - assets/image/Corazon.png
+    - assets/image/nutri.png
+    - 'assets/icons/salud.png'
+    - 'assets/icons/ciru.png'
+    - 'assets/icons/heri.png'
+    - "assets/icons/rat.png"
+    - assets/image/ste.jpg
+    - "assets/image/est.jpg"
 
 
